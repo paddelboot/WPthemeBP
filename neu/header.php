@@ -5,8 +5,8 @@
  * Displays all of the <head> section and everything up till <div id="main">
  *
  * @package WordPress
- * @subpackage pro-wordpress
- * @since Pro WordPress 0.1a
+ * @subpackage WPthemeBP
+ * @since WPthemeBP 0.1a
  */
 ?><!DOCTYPE html>
 <!--[if IE 7]>
@@ -38,63 +38,12 @@
 
 			<header class="clearfix">
 
-				<?php
-				$header = get_query_var( 'header' );
-
-				if ( $header ) {
-					?>
-					<section class="top clearfix">
-						<div class="container dynamic clearfix">
-							<?php
-							get_template_part( 'header', 'content-dynamic' );
-							?>
-						</div>
-					</section>
-					<?php
-				}
-				?>
-
-				<section class="middle">
 
 					<nav>
 						<?php
-						wp_nav_menu( array( 'theme_location' => 'header_main', 'menu_class' => 'sp_main_menu' ) );
+						wp_nav_menu( array( 'theme_location' => 'header_main', 'menu_class' => 'neu_main_menu' ) );
 						?>
 					</nav>
 
-				</section>
-
-				<section class="bottom">
-
-					<div class="container">
-
-						<div id="sub-header"  class="clearfix">
-
-							<div id="logo">
-								<a href="<?php echo home_url(); ?>" title="neu Startseite">
-									<img src="<?php echo get_template_directory_uri(); ?>/images/neu-logo.png" alt="neu.de">
-								</a>
-							</div>
-
-							<div id="sub-menu">
-								<a href="#blog-anchor">
-									<img src="<?php echo get_template_directory_uri(); ?>/images/news.png" alt="<?php _e( 'News', neu_setup_theme::$_obj->textdomain ); ?>">
-								</a>
-								<a href="/header/kontakt">
-									<img src="<?php echo get_template_directory_uri(); ?>/images/kontakt.png" alt="<?php _e( 'Kontakt', neu_setup_theme::$_obj->textdomain ); ?>">
-								</a>
-								<a href="/header/login">
-									<img src="<?php echo get_template_directory_uri(); ?>/images/login.png" alt="<?php _e( 'Anmelden', neu_setup_theme::$_obj->textdomain ); ?>">
-								</a>
-								<a href="/header/socialfeed">
-									<img src="<?php echo get_template_directory_uri(); ?>/images/social.png" alt="<?php _e( 'Aufklappen', neu_setup_theme::$_obj->textdomain ); ?>">
-								</a>
-							</div>
-
-						</div>
-
-					</div>
-
-				</section>
-
+				
 			</header>

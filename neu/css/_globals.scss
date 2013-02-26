@@ -14,13 +14,9 @@
 */
 
 /* Colors */
-$blue: #78b4dc;
-$darkgrey: #556473;
-$text: #91a1af;
-$inactive: #bdccd4;
-$background: #dee6ea;
-$white: #ffffff;
-$background_dark: #434a54;
+$blue: blue;
+$white: #fff;
+$black: #000;
 
 html {
 	height: 100%;
@@ -29,12 +25,6 @@ html {
 
 body{
 	height: 100%;
-	font-size: 12px;
-	font-size: 1.2rem;
-	font-family: arial, verdana, helvetica;
-	color: $darkgrey;
-	line-height: 15px;
-	background: url( 'images/backgrounds/hintergrund-neu.jpg' ) repeat-x top $background;
 }
 
 body > #container {

@@ -24,20 +24,6 @@ get_header();
 	// Clone original post object
 	$orig_post = clone $post;
 	
-	// Get slider. We can't rely on global $post since
-	// this might be a redirect from a single or date view,
-	// which is all handled on the front page
-	neu_theme::$_obj->slider( get_page_by_path( 'startseite', OBJECT, 'page' ) );
-	
-	// Get "Leistungen" - teaser
-	get_template_part( 'content', 'teaser' );
-		
-	// Get page textbox
-	get_template_part( 'content', 'textbox' );
-	
-	// Get blog archive
-	get_template_part( 'content', 'blog' );
-	
 	// Revert post object
 	$post = clone $orig_post;
 	?>
