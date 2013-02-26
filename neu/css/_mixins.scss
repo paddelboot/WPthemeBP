@@ -1,0 +1,41 @@
+/**
+* Geier Völlger Architekten WordPress Theme
+* 
+* Sass mixins style definitions
+* 
+* @version: 0.1a
+* @author: neu.de, Michael Schröder <ms@ts-webdesign.net>
+* 
+* Changelog
+*
+* 0.1a
+* - Initial version
+* 
+*/
+
+@mixin max-width{
+	
+	max-width: 960px;
+	max-width: 96rem;
+	margin: 0 auto;	
+}
+
+@mixin textbox-teaser {
+	
+	margin-bottom: 50px;
+	
+	article {
+		float: left;
+		width: 435px;
+		width: 45.3125%;
+		padding: 2.0833%;
+		box-shadow: 0 10px 13px -10px $text;
+		background: url( 'images/backgrounds/1x1-white.png' );
+	}
+	
+	.spacer {
+		float: left;
+		width: 10px;
+	}
+	
+}
