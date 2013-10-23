@@ -1,18 +1,13 @@
 <?php
 
 /**
- * Geier Völlger Architekten WordPress Theme
+ * neu WordPress theme setup class
  * 
  * Contains all the functions to initialize the theme
  * 
  * @version: 0.2a
- * @author: neu.de, Michael Schröder <ms@ts-webdesign.net>
+ * @author: neu.de, Michael Schröder <ms@meilenstein.ms>
  * 
- * 
- * 
- * @TODO:
- * 
- * - Check WordPress Version >= 3.5
  * 
  * 
  * @Changelog

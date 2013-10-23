@@ -1,10 +1,10 @@
 /**
  * neu WordPress Theme
  * 
- * Javascript classes
+ * Javascript class
  * 
- * @version v0.2a;
- * @author Michael Schröder <ms@ts-webdesign.net>
+ * @version v0.1a;
+ * @author Michael Schröder <ms@meilenstein.ms>
  * 
  * 
  * Changelog
@@ -33,7 +33,7 @@ jQuery.noConflict();
 		},
 		
 		/**
-		 * Display "Leistungen" details
+		 * Do an ajax call
 		 *
 		 */
 		action : function() {
@@ -52,8 +52,6 @@ jQuery.noConflict();
 					async: true,
 					success: function( response ) {
 					
-						// Do a stripslashes
-						var string = $("<textarea/>").html( response ).text();
 						// Parse response
 						var returndata = JSON.parse( string );
 

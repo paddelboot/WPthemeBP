@@ -1,11 +1,11 @@
 <?php
 /**
- * Geier Völlger Architekten WordPress Theme
+ * neu WordPress theme core class
  * 
- * Contains all the additional functions of the theme
+ * Contains all the core functionality of the theme
  * 
  * @version: 0.1a
- * @author: neu.de, Michael Schröder <ms@ts-webdesign.net>
+ * @author: neu.de, Michael Schröder <ms@meilenstein.ms>>
  * 
  * Changelog
  *
@@ -14,283 +14,264 @@
  * 
  * 
  */
-if ( !class_exists( 'neu_theme' ) ) {
+if ( !class_exists( 'neu_core' ) ) {
 
-	class neu_theme {
+    class neu_core {
 
-		/**
-		 * The class object
-		 *
-		 * @static
-		 * @since  0.1
-		 * @var    string
-		 */
-		static public $_obj = NULL;
+        /**
+         * The class object
+         *
+         * @static
+         * @since  0.1
+         * @var    string
+         */
+        static public $_obj = NULL;
 
-		/**
-		 * Textdomain string
-		 * 
-		 * @var string
-		 */
-		public $textdomain;
+        /**
+         * Textdomain string
+         * 
+         * @var string
+         */
+        public $textdomain;
 
-		/**
-		 * Currently logged in user
-		 * 
-		 * @var object 
-		 */
-		public $user;
+        /**
+         * Currently logged in user
+         * 
+         * @var object 
+         */
+        public $user;
 
-		/**
-		 * Create class object
-		 *
-		 * @access public
-		 * @return object $class_object;
-		 * @since 0.1a
-		 */
-		public function get_object() {
+        /**
+         * Create class object
+         *
+         * @access public
+         * @return object $class_object;
+         * @since 0.1a
+         */
+        public function get_object() {
 
-			if ( NULL == self::$_obj ) {
-				self::$_obj = new self;
-			}
-			return self::$_obj;
-		}
+            if ( NULL == self::$_obj ) {
+                self::$_obj = new self;
+            }
+            return self::$_obj;
+        }
 
-		/**
-		 * init function to register all used hooks,
-		 * load class files and set parameters
-		 * such as the database table 
-		 *
-		 * @access  public
-		 * @uses	add_filter, get_site_option, add_theme_support, wp_register_theme_activation_hook, wp_register_theme_deactivation_hook
-		 * @return  void
-		 * @since   0.1a
-		 */
-		function __construct() {
+        /**
+         * init function to register all used hooks,
+         * load class files and set parameters
+         * such as the database table 
+         *
+         * @access  public
+         * @uses	add_filter, get_site_option, add_core_support, wp_register_core_activation_hook, wp_register_core_deactivation_hook
+         * @return  void
+         * @since   0.1a
+         */
+        function __construct() {
 
-			//add_filter( 'the_content', array( $this, 'insert_column' ) );
-			add_filter( 'init', array( $this, 'register_shortcodes' ) );
+            //add_filter( 'the_content', array( $this, 'insert_column' ) );
+            add_filter( 'init', array( $this, 'register_shortcodes' ) );
 
-			add_filter( 'template_include', array( $this, 'template_include' ) );
+            add_filter( 'template_include', array( $this, 'template_include' ) );
 
-			add_filter( 'wp_ajax_posts_more', array( $this, 'ajax_posts_more' ) );
-			add_filter( 'wp_ajax_nopriv_posts_more', array( $this, 'ajax_posts_more' ) );
+            add_filter( 'wp_ajax_posts_more', array( $this, 'ajax_posts_more' ) );
+            add_filter( 'wp_ajax_nopriv_posts_more', array( $this, 'ajax_posts_more' ) );
+        }
 
-		}
+        /**
+         * Load additonal news for blog
+         * 
+         */
+        public function ajax_posts_more() {
 
+            $paged = intval( init_var( $_POST, 'page' ) );
+            $json = array( );
 
-		/**
-		 * Load additonal news for blog
-		 * 
-		 */
-		public function ajax_posts_more() {
+            $args = array(
+                'post_type' => 'post',
+                'posts_per_page' => 3,
+                'category_name' => 'news',
+                'paged' => $paged
+            );
 
-			$paged = intval( init_var( $_POST, 'page' ) );
-			$json = array( );
+            $news = new WP_Query( $args );
 
-			$args = array(
-				'post_type' => 'post',
-				'posts_per_page' => 3,
-				'category_name' => 'news',
-				'paged' => $paged
-			);
+            $json[ 'lastpage' ] = ( $paged >= $news->max_num_pages ) ? TRUE : FALSE;
 
-			$news = new WP_Query( $args );
+            ob_start();
 
-			$json[ 'lastpage' ] = ( $paged >= $news->max_num_pages ) ? TRUE : FALSE;
+            while ( $news->have_posts() ) : $news->the_post();
+                ?>
 
-			ob_start();
+                <article class="clearfix">
 
-			while ( $news->have_posts() ) : $news->the_post();
-				?>
+                    <?php
+                    if ( has_post_thumbnail() )
+                        the_post_thumbnail( 'blog-thumbnail' );
+                    ?>
 
-				<article class="clearfix">
+                    <time>
+                        <?php
+                        echo '<span class="day">' . get_the_date( 'j' ) . '</span>';
+                        echo '<span class="month">' . get_the_date( 'M' ) . '</span><br>';
+                        echo '<span class="year">' . get_the_date( 'Y' ) . '</span>';
+                        ?>
+                    </time>
 
-					<?php
-					if ( has_post_thumbnail() )
-						the_post_thumbnail( 'blog-thumbnail' );
-					?>
+                    <?php
+                    the_title( '<h2>', '</h2><br>' );
 
-					<time>
-						<?php
-						echo '<span class="day">' . get_the_date( 'j' ) . '</span>';
-						echo '<span class="month">' . get_the_date( 'M' ) . '</span><br>';
-						echo '<span class="year">' . get_the_date( 'Y' ) . '</span>';
-						?>
-					</time>
+                    the_excerpt();
+                    ?>
+                </article>
 
-					<?php
-					the_title( '<h2>', '</h2><br>' );
+                <?php
+            endwhile;
 
-					the_excerpt();
-					?>
-				</article>
+            $posts = ob_get_clean();
 
-				<?php
-			endwhile;
+            $json[ 'html' ] = $posts;
 
-			$posts = ob_get_clean();
+            echo json_encode( $json );
 
-			$json[ 'html' ] = $posts;
+            exit;
+        }
 
-			echo json_encode( $json );
+        /**
+         * Include specific templates
+         * 
+         * @global type $wp_query
+         * @param type $template
+         * @return type
+         */
+        public function template_include( $template ) {
 
-			exit;
-		}
+            return $template;
+        }
 
-		/**
-		 * Include specific templates
-		 * 
-		 * @global type $wp_query
-		 * @param type $template
-		 * @return type
-		 */
-		public function template_include( $template ) {
+        /**
+         * Register column shortcode
+         * 
+         */
+        public function register_shortcodes() {
 
-			return $template;
-		}
+            add_shortcode( 'column', array( $this, 'column_shortcode' ) );
+        }
 
-		/**
-		 * Register column shortcode
-		 * 
-		 */
-		public function register_shortcodes() {
+        /**
+         * Image slider 
+         * 
+         */
+        public function slider( $post, $size = 'slider-full' ) {
 
-			add_shortcode( 'column', array( $this, 'column_shortcode' ) );
-		}
+            // Get attachments
+            $args = array(
+                'post_type' => 'attachment',
+                'post_mime_type' => 'image',
+                'numberposts' => null,
+                'post_status' => null,
+                'post_parent' => $post->ID,
+                'exclude' => get_post_thumbnail_id( $post->ID ),
+                'orderby' => 'menu_order',
+                'order' => 'ASC'
+            );
 
-		/**
-		 * Image slider frontpage
-		 * 
-		 * @access	public
-		 * @uses	sanitize_title, have_posts, the_post, the_title, has_post_thumbnail, the_post_thumbnail, get_the_title, rewind_posts, the_title, the_permalink
-		 * @global	object $post
-		 * @param	string $cat | Category slug/name
-		 * @since	0.3a 
-		 */
-		public function slider( $post, $size = 'slider-full' ) {
+            $attachments = get_posts( $args );
+            ?>
+            <!-- Main container -->
+            <div class="flexslider">
 
-			// Get attachments
-			$args = array(
-				'post_type' => 'attachment',
-				'post_mime_type' => 'image',
-				'numberposts' => null,
-				'post_status' => null,
-				'post_parent' => $post->ID,
-				'exclude' => get_post_thumbnail_id( $post->ID ),
-				'orderby' => 'menu_order',
-				'order' => 'ASC'
-			);
+                <ul class="slides">
+                    <?php
+                    foreach ( $attachments as $attachment ) :
+                        ?>
 
-			$attachments = get_posts( $args );
-			?>
-			<!-- Main container -->
-			<div class="sliderkit">
+                        <li><a title="<?php echo $attachment->post_name; ?>" href="#"></a></li>
+                        <?php
+                    endforeach;
+                    ?>
+                </ul>
 
-				<div class="sliderkit-nav">
-					<div class="sliderkit-nav-clip" style="width: 69px; height: 13px;">
-						<ul style="width: 70px;">
-			<?php
-			foreach ( $attachments as $attachment ) :
-				?>
+            </div>
+            <?php
+        }
 
-								<li><a title="<?php echo $attachment->post_name; ?>" href="#"></a></li>
-				<?php
-			endforeach;
-			?>
-						</ul>
-					</div>
-				</div>
+        /**
+         * Register "column" shortcode
+         * 
+         * @param type $atts
+         * @param type $content
+         * @return type
+         */
+        public function column_shortcode( $atts, $content = NULL ) {
 
-				<!-- Panels container -->
-				<div class="sliderkit-panels">  
-					<div class="sliderkit-panels-wrapper" style="position: relative;">
+            extract( shortcode_atts( array(
+                'width' => '100'
+                            ), $atts ) );
 
-						<!-- Panel divs -->
-			<?php
-			foreach ( $attachments as $attachment ) {
-				?>
+            // Not self-enclosing
+            if ( NULL !== $content ) {
 
-							<div class="sliderkit-panel">
-				<?php
-				// Get according size
-				$image = wp_get_attachment_image_src( $attachment->ID, $size );
+                return '<div style="width: ' . $width . '%; float: left">' . $content . '</div>';
+            }
+        }
 
-				if ( FALSE == $image )
-					$image[ 0 ] = $attachment->guid;
-				?>
-								<img src="<?php echo $image[ 0 ]; ?>" alt="" title="#htmlcaption_<?php echo $attachment->ID; ?>"/>
-							</div>
+        /**
+         * For not getting annoyed too much by PHP notices. This function should
+         * help to keep the "flow" of the code, i.e. limiting the amount of conditional
+         * statements in HTML blocks, etc.
+         * 
+         * Example use: selected( self::init_var( $var2, $index ), $var )
+         * Instead of: if( !empty( $var2[ $index ] ) ) : selected( $var2[ $index ], $var ); endif;
+         * Example 2: <input type="text" value="<?php echo init_var( $_POST, 'this_field', 'Please fill out this field', TRUE ); ?>" name="this_field"> 
+         * Instead of: urgh, never mind.
+         * 
+         * @access	public
+         * @param	var $var | the variable to check
+         * @param	string $index | the index of the variable
+         * @param	string, boolean $default | what to set the index with if not yet set
+         * @param	bool $override_set_empty | Set var if it is already set, but empty
+         * @return	var $var[ $index ] | the value of $var[ $index ]
+         * @since	0.1a
+         */
+        public static function init_var( $var, $index, $default = FALSE, $override_set_empty = FALSE ) {
 
-				<?php
-			}
-			?>
-					</div>
-				</div>
+            // is the $index of $var not yet set or (optional) set but empty?
+            if ( !isset( $var[ $index ] ) || ( TRUE == $override_set_empty && empty( $var[ $index ] ) ) )
+                $var[ $index ] = ( FALSE === $default ) ? FALSE : $default;
 
-			</div>
-			<?php
-		}
+            return $var[ $index ];
+        }
 
-		/**
-		 * Register "column" shortcode
-		 * 
-		 * @param type $atts
-		 * @param type $content
-		 * @return type
-		 */
-		public function column_shortcode( $atts, $content = NULL ) {
+        /**
+         * Debug function
+         * 
+         * @param type $array
+         * @param type $text
+         */
+        public static function p( $array, $text = FALSE ) {
 
-			p( $atts, "SHORTCODE EXECUTED" );
+            echo "<span style='color:black;'><b>{$text}</b></span>" . "<pre style='background: lightgrey; color: black;'>" . print_r( $array, TRUE ) . "</pre>";
+        }
 
-			extract( shortcode_atts( array(
-						'width' => '100'
-							), $atts ) );
-
-			// Not self-enclosing
-			if ( NULL !== $content ) {
-
-				return '<div style="width: ' . $width . '%; float: left">' . $content . '</div>';
-			}
-		}
-
-		/**
-		 * For not getting annoyed too much by PHP notices. This function should
-		 * help to keep the "flow" of the code, i.e. limiting the amount of conditional
-		 * statements in HTML blocks, etc.
-		 * 
-		 * Example use: selected( self::init_var( $var2, $index ), $var )
-		 * Instead of: if( !empty( $var2[ $index ] ) ) : selected( $var2[ $index ], $var ); endif;
-		 * Example 2: <input type="text" value="<?php echo init_var( $_POST, 'this_field', 'Please fill out this field', TRUE ); ?>" name="this_field"> 
-		 * Instead of: urgh, never mind.
-		 * 
-		 * @access	public
-		 * @param	var $var | the variable to check
-		 * @param	string $index | the index of the variable
-		 * @param	string, boolean $default | what to set the index with if not yet set
-		 * @param	bool $override_set_empty | Set var if it is already set, but empty
-		 * @return	var $var[ $index ] | the value of $var[ $index ]
-		 * @since	0.1a
-		 */
-		public static function init_var( $var, $index, $default = FALSE, $override_set_empty = FALSE ) {
-
-			// is the $index of $var not yet set or (optional) set but empty?
-			if ( !isset( $var[ $index ] ) || ( TRUE == $override_set_empty && empty( $var[ $index ] ) ) )
-				$var[ $index ] = ( FALSE === $default ) ? FALSE : $default;
-
-			return $var[ $index ];
-		}
-
-	}
+    }
 
 }
 
-// Helperfunctions
+// Helper functions
+if ( !function_exists( 'p' ) ) {
+
+    function p( $array, $text = FALSE ) {
+
+        return neu_core::p( $array, $text );
+    }
+
+}
+
 if ( !function_exists( 'init_var' ) ) {
 
-	function init_var( $var, $index, $default = FALSE, $override_set_empty = FALSE ) {
+    function init_var( $var, $index, $default = FALSE, $override_set_empty = FALSE ) {
 
-		return neu_theme::init_var( $var, $index, $default, $override_set_empty );
-	}
+        return neu_core::init_var( $var, $index, $default, $override_set_empty );
+    }
 
 }

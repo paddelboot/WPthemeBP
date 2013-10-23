@@ -5,12 +5,16 @@
  * Class loader
  * 
  * @version: 0.1a
- * @author: Michael Schröder <ms@ts-webdesign.net>
+ * @author: Michael Schröder <ms@meilenstein.ms>
  * 
  * Changelog
  *
  * 0.1a
  * - Initial version
+ * 
+ * @TODO:
+ * 
+ * - Check WordPress version  and php >= 3.5
  * 
  */
 
@@ -25,7 +29,7 @@ function neu_autoloader( $class ) {
 
 if ( function_exists( 'add_filter' ) ) {
 	add_filter( 'after_setup_theme', array( 'neu_setup_theme', 'get_object' ), 1 );
-	add_filter( 'after_setup_theme', array( 'neu_theme', 'get_object' ), 2 );
+	add_filter( 'after_setup_theme', array( 'neu_core', 'get_object' ), 2 );
 	add_filter( 'after_setup_theme', array( 'neu_tpl_func', 'get_object' ), 2 );
 }
 

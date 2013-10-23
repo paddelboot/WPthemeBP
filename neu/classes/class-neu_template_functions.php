@@ -6,7 +6,7 @@
  * Contains template functions of the theme
  * 
  * @version: 0.1a
- * @author: neu.de, Michael Schröder <ms@ts-webdesign.net>
+ * @author: neu.de, Michael Schröder <ms@meilenstein.ms>
  * 
  * Changelog
  *

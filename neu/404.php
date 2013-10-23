@@ -7,7 +7,7 @@
  * Template Name: 404 - Seite nicht gefunden
  * 
  * @version 0.1a
- * @author Michael Schröder <ms@ts-webdesign.net>
+ * @author Michael Schröder <ms@meilenstein.ms>
  * 
  * @changelog:
  * 0.1a

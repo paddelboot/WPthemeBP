@@ -17,33 +17,41 @@
 <![endif]-->
 <!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html <?php language_attributes(); ?>>
-	<!--<![endif]-->
-	<head>
-		<meta charset="<?php bloginfo( 'charset' ); ?>" />
-		<meta name="viewport" content="width=device-width" />
-		<title><?php wp_title( '|', true, 'right' ); ?></title>
-		<link rel="profile" href="http://gmpg.org/xfn/11" />
-		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-		<?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions. ?>
-		<!--[if lt IE 9]>
-		<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
-		<![endif]-->
-		<link href='<?php echo get_template_directory_uri(); ?>/style.css' rel='stylesheet' type='text/css'>
-		<?php wp_head(); ?>
-	</head>
+    <!--<![endif]-->
+    <head>
+        <meta charset="<?php bloginfo( 'charset' ); ?>" />
+        <meta name="viewport" content="width=device-width" />
+        <title><?php wp_title( '|', true, 'right' ); ?></title>
+        <link rel="profile" href="http://gmpg.org/xfn/11" />
+        <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-	<body <?php body_class(); ?>>
+        <?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions. ?>
+        <!--[if lt IE 9]>
+        <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
+        <![endif]-->
 
-		<div id="container">
+        <?php
+        if ( TRUE == neu_setup_theme::debug_IE ) :
+            ?>
+            <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/firebug-lite/build/firebug-lite.js#startOpened"></script>
+            <?php
+        endif;
+        ?>
 
-			<header class="clearfix">
+        <link href='<?php echo get_template_directory_uri(); ?>/style.css' rel='stylesheet' type='text/css'>
+        <?php wp_head(); ?>
+    </head>
 
+    <body <?php body_class(); ?>>
 
-					<nav>
-						<?php
-						wp_nav_menu( array( 'theme_location' => 'header_main', 'menu_class' => 'neu_main_menu' ) );
-						?>
-					</nav>
+        <div id="container">
 
-				
-			</header>
+            <header class="clearfix">
+
+                <nav>
+                    <?php
+                    wp_nav_menu( array( 'theme_location' => 'header_main', 'menu_class' => 'neu_main_menu' ) );
+                    ?>
+                </nav>
+
+            </header>

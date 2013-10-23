@@ -2,10 +2,9 @@
 /**
  * neu WordPress theme miscellanous functions
  * 
- * Class loader
  * 
  * @version: 0.1a
- * @author: Michael Schröder <ms@ts-webdesign.net>
+ * @author: Michael Schröder <ms@meilenstein.ms>
  * 
  * Changelog
  *
@@ -14,7 +13,7 @@
  * 
  */
 
-class misc {
+class neu_misc {
 
 	/**
 	 *

@@ -1,7 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300);
 /**
 Theme Name: neu
-Author: Michael Schröder <ms@ts-webdesign.net>
+Author: Michael Schröder <ms@meilenstein.ms>
 Author URI: http://wordpress-entwicklung.de
 Description: neu Relaunch Theme
 Version: 0.1a
@@ -13,7 +13,7 @@ Text Domain: neu
 * Global style definitions
 * 
 * @version: 0.1a
-* @author: Michael Schröder <ms@ts-webdesign.net>
+* @author: Michael Schröder <ms@meilenstein.ms>
 * 
 * Changelog
 *
@@ -76,12 +76,12 @@ table {
   border-spacing: 0; }
 
 /**
-* Geier Völlger Architekten WordPress Theme
+* neu WordPress Theme
 * 
 * Global style definitions
 * 
 * @version: 0.1a
-* @author: neu.de, Michael Schröder <ms@ts-webdesign.net>
+* @author: neu.de, Michael Schröder <ms@meilenstein.ms>
 * 
 * Changelog
 *
@@ -200,12 +200,12 @@ p.more a {
     text-align: center; }
 
 /**
-* Geier Völlger Architekten WordPress Theme
+* neu WordPress Theme
 * 
 * Sass mixins style definitions
 * 
 * @version: 0.1a
-* @author: neu.de, Michael Schröder <ms@ts-webdesign.net>
+* @author: neu.de, Michael Schröder <ms@meilenstein.ms>
 * 
 * Changelog
 *
