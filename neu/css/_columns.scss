@@ -1,0 +1,19 @@
+.column{
+	
+	&.floatleft{
+		float: left;
+	}
+	
+	&.floatright{
+		float: right;
+		
+	}
+	
+	&.justify{
+		text-align: justify;
+	}
+	
+	&.box_content{
+		box-sizing: content-box;
+	}
+}

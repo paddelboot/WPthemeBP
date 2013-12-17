@@ -204,16 +204,36 @@ if ( !class_exists( 'neu_core' ) ) {
          */
         public function column_shortcode( $atts, $content = NULL ) {
 
-            extract( shortcode_atts( array(
-                'width' => '100'
+           extract( shortcode_atts( array(
+                'weite' => '48',
+                'pos' => 'links',
+                'padding' => '',
+                'einzug' => '2',
+                'klasse' => ''
                             ), $atts ) );
 
-            // Not self-enclosing
+            // Column types
+            if ( 'links' == $pos ) {
+
+                $float = 'left';
+                $padding = 'padding-right: ' . $einzug . '%';
+            }
+            if ( 'mitte' == $pos ) {
+
+                $float = 'left';
+                $padding = 'padding: 0 ' . $einzug . '%';
+            }
+            if ( 'rechts' == $pos ) {
+
+                $float = 'right';
+                $padding = 'padding-left: ' . $einzug . '%';
+            }
+
+            // This is not supposed to be self-enclosing
             if ( NULL !== $content ) {
 
-                return '<div style="width: ' . $width . '%; float: left">' . $content . '</div>';
+                return '<div class="column float' . $float . ' justify box_content ' . $klasse . '" style="width: ' . $weite . '%; ' . $padding . '">' . apply_filters( 'the_content', $content ) . '</div>';
             }
-        }
 
         /**
          * For not getting annoyed too much by PHP notices. This function should
