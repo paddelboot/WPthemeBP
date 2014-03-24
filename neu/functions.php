@@ -29,6 +29,8 @@ if ( ! $correct_php_version || ! $correct_wp_version && TRUE != WP_TESTS_DOMAIN 
 spl_autoload_register( 'neu_autoloader' );
 
 function neu_autoloader( $class ) {
+    
+        $class = str_replace( 'neu_', '', $class );
 	
 	if ( is_file( get_template_directory() . '/classes/' . $class . '.php' ) )
 		include ( get_template_directory() . '/classes/' . $class . '.php' );
