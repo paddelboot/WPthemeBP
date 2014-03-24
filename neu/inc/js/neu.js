@@ -41,7 +41,7 @@ jQuery.noConflict();
 			$( '#action_trigger' ).click( function() {
 				
 				var data = {
-					action : 'action_function',
+					action : 'object_add',
 					detail : $( this ).data( 'id' )
 				};
 			

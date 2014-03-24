@@ -39,7 +39,7 @@ function neu_autoloader( $class ) {
 if ( function_exists( 'add_filter' ) ) {
 	add_filter( 'after_setup_theme', array( 'neu_setup_theme', 'get_object' ), 1 );
 	add_filter( 'after_setup_theme', array( 'neu_core', 'get_object' ), 2 );
-	add_filter( 'after_setup_theme', array( 'neu_tpl_func', 'get_object' ), 2 );
+	add_filter( 'after_setup_theme', array( 'neu_template_functions', 'get_object' ), 2 );
 }
 
 ?>
