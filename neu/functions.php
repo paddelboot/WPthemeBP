@@ -12,19 +12,26 @@
  * 0.1a
  * - Initial version
  * 
- * @TODO:
- * 
- * - Check WordPress version  and php >= 3.5
  * 
  */
+
+// check for php 5.3 and WP 3.5
+$correct_php_version = version_compare( phpversion(), '5.3', '>=' );
+$correct_wp_version = version_compare( get_bloginfo( 'version' ), '3.5', '>=' );
+
+if ( ! $correct_php_version || ! $correct_wp_version && TRUE != WP_TESTS_DOMAIN ) {
+    echo "This theme requires <strong>PHP 5.3</strong> or higher and WordPress 3.5 or higher.<br>";
+    echo "You are running PHP " . phpversion() . " and WordPress " . get_bloginfo( 'version' );
+    exit;
+}
 
 // Register autoloader function
 spl_autoload_register( 'neu_autoloader' );
 
 function neu_autoloader( $class ) {
 	
-	if ( is_file( get_template_directory() . '/classes/class-' . $class . '.php' ) )
-		include ( get_template_directory() . '/classes/class-' . $class . '.php' );
+	if ( is_file( get_template_directory() . '/classes/' . $class . '.php' ) )
+		include ( get_template_directory() . '/classes/' . $class . '.php' );
 }
 
 if ( function_exists( 'add_filter' ) ) {
