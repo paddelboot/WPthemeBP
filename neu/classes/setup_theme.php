@@ -44,6 +44,8 @@ if ( !class_exists( 'neu_setup_theme' ) ) {
 		 */
 		public $user;
 
+		const debug_IE = FALSE;
+
 		/**
 		 * Create class object
 		 *
