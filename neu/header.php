@@ -33,12 +33,11 @@
         <?php
         if ( TRUE == neu_setup_theme::debug_IE ) :
             ?>
-            <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/firebug-lite/build/firebug-lite.js#startOpened"></script>
+            <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/js/firebug-lite/build/firebug-lite.js#startOpened"></script>
             <?php
         endif;
         ?>
-
-        <link href='<?php echo get_template_directory_uri(); ?>/style.css' rel='stylesheet' type='text/css'>
+            
         <?php wp_head(); ?>
     </head>
 
