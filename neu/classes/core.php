@@ -234,6 +234,7 @@ if ( !class_exists( 'neu_core' ) ) {
 
                 return '<div class="column float' . $float . ' justify box_content ' . $klasse . '" style="width: ' . $weite . '%; ' . $padding . '">' . apply_filters( 'the_content', $content ) . '</div>';
             }
+}
 
         /**
          * For not getting annoyed too much by PHP notices. This function should
