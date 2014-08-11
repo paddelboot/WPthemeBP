@@ -75,6 +75,43 @@ if ( !class_exists( 'neu_core' ) ) {
 
             add_filter( 'wp_ajax_posts_more', array( $this, 'ajax_posts_more' ) );
             add_filter( 'wp_ajax_nopriv_posts_more', array( $this, 'ajax_posts_more' ) );
+
+	            add_filter( 'nav_menu_css_class', array( $this, 'class_nav_menu_items' ), 10, 2 );
+        }
+
+        /**
+         * Make sure menu items are highlighted
+         * on post type single views
+         * 
+         * @param array $classes | Classes applied to current nav item
+         * @param WP_Post object $item | current nav item
+         * @return array $classes | Classes applied to current nav item
+         */
+        public function class_nav_menu_items( $classes, $item ) {
+
+            // Leistungen parent page
+            $highlight = FALSE;
+
+            // Referenzen header menu, highlighting for page "Referenzen"
+
+            if ( home_url( '/atelier-uebersicht/' ) == $item->url && __( 'Atelier', jschumacher_setup_theme::$obj->textdomain ) == $item->title && 'atelier' == get_post_type() )
+                $highlight = TRUE;
+
+            if ( home_url( '/schmuck-uebersicht/' ) == $item->url && __( 'Schmuck', jschumacher_setup_theme::$obj->textdomain ) == $item->title && 'schmuck' == get_post_type() )
+                $highlight = TRUE;
+
+            if ( home_url( '/uhr-uebersicht/' ) == $item->url && __( 'Uhren', jschumacher_setup_theme::$obj->textdomain ) == $item->title && 'uhr' == get_post_type() )
+                $highlight = TRUE;
+
+            if ( home_url( '/trauring-uebersicht/' ) == $item->url && __( 'Trauringe', jschumacher_setup_theme::$obj->textdomain ) == $item->title && 'trauring' == get_post_type() )
+                $highlight = TRUE;
+
+            if ( TRUE == $highlight ) {
+                $classes[ ] = 'current-menu-item';
+                $classes[ ] = 'current_page_item';
+            }
+
+            return $classes;
         }
 
         /**
