@@ -1,0 +1,268 @@
+
+/**
+ * @700px
+ *
+ */
+
+@media only screen  
+and ( min-width: 700px ) {
+
+    #container{
+
+        header{
+
+
+            #logo{
+
+                img{
+                    width: 50%;
+                }
+            }
+        }
+
+        #content{
+
+            &.home{
+
+                section{
+
+                    &.teaser{
+
+                        article{
+
+                            width: 50%;
+                            float: left;
+                            margin-bottom: 30px;
+                            box-shadow: none;
+
+                            a{
+
+                                display: block;
+                                max-width: 280px;
+                                margin: 0 auto;
+
+                                img{
+
+                                    &.teaser-frontpage{
+                                        height: 200px;
+                                        overflow: hidden;
+                                    }
+                                }
+
+                                .content{
+                                    padding: 20px;
+
+                                    h2{
+                                        font-size: 20px;
+                                        font-size: 2rem;
+                                    }
+                                }
+
+                            }
+
+                        }
+
+                        .spacer{
+
+                            display: none;
+
+                        }
+
+                    }
+
+                    &.event{
+
+                        padding-top: 50px;
+
+                        .css-events-list{
+
+                            @include events-list-tablet;
+
+                        }
+
+
+
+                    }
+                }
+
+
+            }
+
+            &.next-events{
+
+                section{
+
+                    .css-events-list{
+
+                        @include events-list-tablet;
+
+                    }
+
+                }
+            }
+
+            &.last-events{
+
+                section{
+
+                    .css-events-list{
+
+                        article{
+                            
+                            width: 100%;
+                            clear: both;
+                            margin-bottom: 20px;
+                        }
+
+                    }
+
+                }
+
+            }
+
+            &.taxonomy.events{
+
+                section{
+
+
+                    @include events-list-tablet;
+
+                    article{
+
+                        margin-bottom: 20px;
+
+                        a{
+                            position: relative;
+                            z-index: 2;
+                            padding: 30px;
+                        }
+
+
+                        .content{
+
+                            position: relative;
+                            z-index: 1;
+                            top: -20px;
+                            width: 75%;
+                            margin: 0 auto;
+                            padding: 5%;
+                        }
+
+                        .event_bottom{
+                            position: relative;
+                            top: -30px;
+                            width: 75%;
+                            padding: 0 5%;
+                            margin: 0 auto;
+                            background-size: contain;
+                        }
+                    }
+
+
+                }
+            }
+
+            &.specials{
+
+                section{
+
+                    &.pagetop{
+                        display: none;
+                    }
+
+                    &.pagecontent{
+
+                        article{
+
+                            .attributes{
+
+                                img.wp-post-image{
+                                    float: left;
+                                    width: 25%;
+                                    height: auto;
+                                    margin-right: 20px;
+                                    box-shadow: none;
+                                    border: 3px solid $white;
+
+                                }
+
+                                span{
+
+                                    &.spicy{
+
+                                        position: absolute;
+                                        top: auto;
+                                        right: 60px;
+                                        padding: 0;
+
+                                    }
+
+                                    &.price{
+
+                                        padding: 0;
+                                        right: 0;
+                                        color: $black;
+                                        background: none;
+                                    }
+                                }
+                            }
+
+                            .content{
+
+                                width: 50%;
+                                float: left;
+
+                                h3{
+                                    padding-top: 0;
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+
+            }
+        }
+
+
+        footer{
+
+            .inner{
+
+                padding: 0 30px;
+
+                ul.footer_widgetarea{
+
+                    width: 47%;
+                    float: left;
+
+                    &.three{
+                        clear:both;
+                    }
+                }
+
+                .spacer{
+
+                    height: 1px;
+
+                    &.one,
+                    &.three{
+
+                        display: block;
+                        width: 5%;
+                        float: left;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+
+}

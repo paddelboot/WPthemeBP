@@ -1,0 +1,1065 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 05.05.2014, 13:52:51
+    Author     : meister
+*/
+
+@media only screen  
+and ( min-width: 320px ),
+// iPhone 4 
+only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px),
+// iPhone 5 
+only screen
+and (min-device-width: 560px) 
+and (max-device-width: 1136px) 
+and (device-aspect-ratio: 40/71) {
+
+    #container{
+
+        font-family: 'Merriweather Regular', 'Times New Roman', arial;
+        background: url( 'assets/images/backgrounds/wood_bg_160px.jpg' );
+        width: 100%;
+
+        p{
+            font-size: 14px;
+            font-size: 1.4rem;
+            line-height: 18px;
+            line-height: 1.8rem;
+        }
+
+        h2,h3{
+
+            padding: 10px 0;
+            color: $gold;
+            //font-family: 'Times new roman';
+            line-height: 20px;
+            text-transform: none;
+        }
+
+        .mobile{
+            display: block;
+        }
+
+        .desktop,
+        .tablet{
+
+            display: none;
+        }
+
+        .mosaic-overlay{
+            display: none;
+        }
+
+        header{
+
+            width: 100%;
+
+            nav{
+
+                // Container für Hauptmenü
+                .main_menu_header_container{
+                    display: none;
+                }
+
+                &#main_nav{
+
+                    width: 100%;
+
+                }
+
+                &.misc{
+                    display: none;
+                }
+
+                // Mobiles Menü: Header
+                #header_menu_head{
+
+                    line-height: 40px;
+                    height: 40px;
+                    background: rgba( 0, 0, 0, 0.8 );
+                    z-index: 10;
+
+                    .inner{
+
+                        width: 90%;
+                        margin: 0 auto;
+
+                        #pagename,
+                        #menu_button{
+                            float: left;
+                            text-transform: uppercase;
+                            vertical-align: middle;
+                            font-size: 19px;
+                            font-size: 1.9rem;
+                            color: $white;
+                        }
+
+                        #pagename{
+                            width: 80%;
+                        }
+
+                        #menu_button{
+                            width: 20%;
+                            float: right;
+                            text-align: right;
+                            font-weight: bold;
+                            cursor: pointer;
+
+                            img{
+                                width: 27px;
+                                height: auto;
+                                margin-bottom: 2px;
+                                vertical-align: middle;
+                            }
+                        }
+
+                    }
+                }
+
+                // Mobiles Menü: Liste
+                .header_main_mobile{
+
+                    width: 100%;
+                    overflow: hidden;
+                    z-index: 1;
+
+                    ul {
+
+                        li{
+
+                            &.current-menu-item,
+                            &.current_page_item{
+
+                                border-top: none;
+
+                                a{
+                                    background: url( 'assets/images/backgrounds/gold_transparent.png' );
+                                    color: $white;
+
+                                }
+                            }
+
+                            &.current-menu-ancestor,
+                            &.current-menu-parent,
+                            &.current_page_parent,
+                            &.current_page_ancestor{
+
+                                border-top: none;
+
+
+                                a{
+                                    background: url( 'assets/images/backgrounds/gold_transparent.png' );
+                                    color: $white;
+
+                                }
+
+                                ul.sub-menu{
+                                    display: block;
+                                }
+
+
+                            }
+
+                            a{
+                                display: block;
+                                width: 100%;
+                                padding: 12px 0 10px 20px;
+                                margin: 0;
+                                font-size: 20px;
+                                text-transform: uppercase;
+                                border-bottom: 1px solid $gold;
+                                background: rgba( 0,0,0,0.8 );
+                                color: $white;
+                            }
+
+                            ul.sub-menu{
+
+                                display: none;
+
+                                li{
+
+                                    padding-left: 0;
+                                    border: none;
+                                    color: $white;
+
+                                    a{
+                                        background: rgba( 0,0,0,0.8 );
+
+                                        &:before{
+                                            content: "› ";
+                                        }
+                                    }
+                                }
+
+                            }
+
+                        }
+                    }
+                }
+
+            }
+
+            #logo{
+
+                padding: 20px 0 5px 0;
+
+                img{
+                    display: block;
+                    width: 90%;
+                    height: auto;
+                    margin: 0 auto;
+                }
+
+            }
+        }
+
+        #content{
+
+            width: 90%;
+            margin: 0 auto;
+
+            &.page{
+
+                @include default_content;
+
+                &>img{
+                    width: 100%;
+                    height: auto;
+                }
+
+                section{
+
+                    @include default_section-mobile;
+
+                    &.pagetop{
+
+                        //display: none;
+                    }
+
+                }
+
+            }
+
+            &.home{
+
+                @include default_content;
+
+
+                section{
+
+                    background: none;
+                    padding: 10px 0;
+
+                    &.event{
+
+                        padding-top: 0;
+                    }
+
+                    article{
+
+                        width: 280px;
+                        margin: 0 auto;
+                        box-shadow: 5px 5px 10px $black;
+
+                        a{
+
+                            .content{
+                                clear: both;
+                                padding: 10px;
+                                color: $black;
+                                background: url( 'assets/images/backgrounds/white_transparent.png' );
+
+                                p{
+                                    font-family: "Merriweather Regular", "Times New Roman";
+                                }
+                            }
+
+                            img.teaser-frontpage{
+                                display: block;
+                                width: 100%;
+                                height: auto;
+                            }
+
+                        }
+
+
+
+                    }
+
+                    .spacer{
+                        height: 30px;
+                    }
+
+                    .css-events-list{
+
+                        @include events-list-mobile;
+
+                        article{
+                            margin: 0;
+                        }
+
+                    }
+                }
+
+
+            }
+
+            &.next-events{
+
+                section{
+
+                    @include article_section;
+
+                    .css-events-list{
+
+                        @include events-list-mobile;
+
+                    }
+
+                }
+
+            }
+
+            &.single.event{
+
+                section{
+
+                    &.pagetop{
+
+                        position: relative;
+                        margin-top: 20px;
+
+                        img{
+
+                            display: block;
+                            width: 100%;
+                            height: auto;
+                        }
+
+                        nav{
+
+                            padding-bottom: 10px;
+                            text-align: center;
+
+                            .previous{
+
+                                display: inline-block;
+                                width: 45px;
+                                margin: 0 10px 10px 10px;
+
+                                a{
+                                    display: block;
+
+                                    img{
+                                        width: 55px; 
+                                        height: auto;
+                                    }
+                                }
+                            }
+
+                            .next{
+
+                                display: inline-block;
+                                width: 45px;
+                                margin: 0 10px 10px 10px;
+
+                                a{
+                                    display: block;
+
+                                    img{
+                                        width: 55px; 
+                                        height: auto;
+                                    }
+                                }
+                            }
+
+                        }
+
+                    }
+
+                    &.pagecontent{
+
+                        article{
+
+                            box-shadow: 5px 5px 16px 2px $black;
+
+                            .content{
+
+                                padding: 10px 15px;
+                                background: url( 'assets/images/backgrounds/white_transparent.png' );
+
+                                p, &>h2{
+                                    margin: 0 2%;
+
+                                }
+
+                                .gallery{
+
+                                    padding-top: 10px;
+
+                                    @include clearfix;
+
+                                    figure{
+
+                                        float: left;
+                                        width: 46%;
+                                        height: auto;
+                                        margin: 2%;
+
+                                        img{
+                                            width: 100%;
+                                            height: auto;
+                                            vertical-align: middle;
+                                        }
+
+                                    }
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            &.taxonomy.food,
+            &.taxonomy.drink{
+
+                &.overview{
+
+                    section{
+
+                        .content.drink{
+
+                            article{
+
+                                @include clearfix;
+
+                                h3{
+                                    width: 80%;
+                                    clear: none;
+                                }
+
+                                p, .prices{
+                                    float: left;
+                                    clear: both;
+                                }
+
+                                .attributes{
+
+                                    width: 19%;
+
+                                    span{
+
+                                        &.noalc{
+
+                                            position: relative;
+                                            top: 40px;
+                                        }
+                                    }
+
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+                @include default_content;
+
+                section{
+
+                    @include default_section-mobile;
+
+                    &.pagetop{
+                        display: none;
+                    }
+
+                    &>h2{
+                        color: $black;
+                    }
+
+                    h2{
+
+                        padding-bottom: 5px;
+                        margin-bottom: 20px;
+                        text-transform: none;
+                        border-bottom: 1px solid $black;
+                    }
+
+                    .content{
+
+                        article{
+
+                            position: relative;
+                            padding-bottom: 30px;
+
+                            img.wp-post-image{
+                                margin: 0 10px 3px 0;
+                                float: left;
+                                box-shadow: 3px 3px 5px 0px $black;
+                            }
+
+                            .attributes{
+
+                                span{
+
+                                    font-size: 10px;
+                                    font-weight: normal;
+
+                                    &.new{
+
+                                        //@include flag_new;
+
+                                        position: absolute;
+                                        left: -29px;
+                                        top: 20px;
+                                        padding-left: 5px;
+
+                                        img{
+                                            width: 50px;
+                                            height: auto;
+                                        }
+                                    }
+
+                                    &.spicy{
+
+                                        img{
+                                            width: 29px;
+                                            height: auto;
+                                        }
+                                    }
+
+                                    &.veggie{
+
+                                        img{
+                                            width: 64px;
+                                            height: auto;
+                                        }
+                                    }
+
+                                    img{
+
+                                    }
+                                }
+                            }
+
+                            h3{
+                                clear: both;
+                                padding-bottom: 0;
+                                text-transform: none;
+                                color: $gold;
+
+                                span{
+
+                                    &.zusatz{
+                                        color: $black;
+                                        font-weight: normal;
+                                        font-size: 11px;
+                                    }
+                                }
+                            }
+
+                            p{
+                                font-size: 14px;
+                                font-size: 1.4rem;
+                            }
+
+                            span{
+                                margin-right: 5px;
+                                font-size: 105%;
+                                font-weight: bold;
+
+                            }
+
+                        }
+
+                        &.food{
+
+                            article{
+                                padding-bottom: 30px;
+                            }
+                        }
+                    }
+
+                    @include additional_info;
+
+                }
+
+            }
+
+            &.taxonomy.drink{
+
+                section{
+
+                    .content.drink{
+
+                        h2{
+                            position: relative;
+                            color: $black;
+
+                            span.noalc{
+
+                                position: absolute;
+                                right: -15px;
+                                bottom: 0;
+
+                                img{
+                                    width: 60px;
+                                    height: auto;
+                                }
+
+                            }
+                        }
+
+                        article{
+
+                            position: relative;
+                            padding-bottom: 15px;
+
+                            h3{
+                                width: 100%;
+                                float: left;
+                            }
+
+                            .attributes{
+                                width: 25%;
+                                float: right;
+                                padding-top: 0px;
+
+                                span{
+
+                                    &.new{
+
+                                        @include flag_new;
+
+                                        left: auto;
+                                        top: 10px;
+                                        right: -28px;
+                                        padding-right: 5px;
+
+                                        &.mobile{
+                                            top: 7px;
+                                            right: -29px;
+                                        }
+
+                                    }
+
+                                    &.noalc{
+
+                                        position: relative;
+                                        top: 5px;
+
+                                        img{
+                                            width: 60px;
+                                            height: auto;
+                                        }
+                                    }
+                                }
+
+                            }
+
+                            p{
+                                //clear: both;
+                                font-size: 1.4rem;
+                            }
+
+                            span{
+                                font-weight: normal;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.taxonomy.events,
+            &.page.last-events{
+
+                @include default_content;
+
+                section{
+
+                    @include article_section;
+
+                    article{
+
+                        padding-bottom: 20px;
+
+                        img{
+                            display: block;
+                            width: 100%;
+                            height: auto;
+                        }
+
+                        .content{
+                            clear: both;
+                            padding: 10px;
+                            color: $gold;
+                            font-size: 105%;
+                            background: url( 'assets/images/backgrounds/white_transparent.png' );
+
+                            p.more{
+
+                                a{
+                                    color: $black;
+                                }
+                            }
+                        }
+                    }
+
+                    .css-events-list{
+
+                        .mosaic-overlay{
+
+                            .excerpt{
+
+                                position: absolute;
+                                bottom: 0;
+                                color: $white;
+                                padding: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.specials{
+
+                @include default_content;
+
+                section{
+
+                    background: url( 'assets/images/backgrounds/white_transparent.png' );
+                    padding: 15px;
+
+                    &>h2{
+                        color: $black;
+                    }
+
+                    article{
+
+
+                        margin-bottom: 30px;
+
+                        h3{
+                            padding-bottom: 0;
+                        }
+
+                        .attributes{
+
+                            position: relative;
+                            font-size: 11px;
+
+                            img.wp-post-image{
+                                width: 100%;
+                                height: auto;
+                                box-shadow: 3px 3px 9px $black;
+
+
+                            }
+
+                            span{
+
+                                img{
+                                    width: 50px;
+                                    height: auto;
+                                }
+
+                                &.new{
+
+                                    position: absolute;
+                                    left: -29px;
+                                    top: 20px;
+                                    padding-left: 5px;
+
+                                }
+
+                                &.spicy{
+
+                                    position: absolute;
+                                    left: -29px;
+                                    top: 20px;
+                                    padding-left: 5px;
+
+                                    display: none;
+
+                                }
+
+                                &.price{
+
+                                    position: absolute;
+                                    top: 60%;
+                                    right: -20px;
+                                    padding: 5px 10px;
+                                    color: $white;
+                                    font-size: 20px;
+                                    background: $gold;
+
+                                }
+                            }
+
+                        }
+                    }
+
+                    #seasonal_specials{
+
+
+                        .column{
+
+                            width: 100%;
+
+                            article{
+
+                                h3{
+
+                                    span.zusatz{
+                                        color: $black;
+                                        font-size: 14px;
+                                    }
+                                }
+
+
+                            }
+                        }
+
+                    }
+
+                    @include additional_info;
+                }
+
+            }
+
+            &.reservierung,
+            &.kontakt,
+            &.newsletter{
+
+                @include default_content;
+
+                section{
+
+                    @include default_section-mobile;
+
+                    &.pagetop{
+
+                        display: none;
+                    }
+
+                    &.pagecontent{
+
+                        &>h2{
+                            color: $black;
+                        }
+
+                        text-align: center;
+
+                        .wpcf7{
+
+                            text-align: left;
+
+                            @include cf7;
+
+                            form{
+
+                                input[type="submit"]{
+
+                                    min-height: 50px;
+                                }
+
+                            }
+
+                        }
+
+                        p{
+                            font-family: inherit;
+                        }
+
+                    }
+                }
+
+            }
+
+            &.kontakt{
+
+                @include default_content;
+
+                section{
+
+                    @include default_section-mobile;
+
+                    p{
+                        font-size: 90%;
+                    }
+
+                    .wpcf7{
+
+                        @include cf7;
+                    }
+
+                    #contact_maps_container{
+                        position: relative;
+                        padding-bottom: 56%;
+                        min-height: 200px;
+                        overflow: hidden;
+
+
+                        iframe,
+                        object,
+                        embed {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                    }
+                }
+            }
+
+            &.about-us{
+
+                h2{
+                    color: $gold;
+                }
+
+                p{
+                    @include blockfont;
+                }
+
+                a{
+                    color: $gold;
+                    text-decoration: underline;
+
+                }
+
+            }
+
+            &.newsletter{
+
+                @include default_content;
+
+                section{
+
+                    @include default_section-mobile;
+
+                    .wpcf7{
+
+                        @include cf7;
+
+                        .radio{
+                            padding-top: 20px;
+                            color: $black;
+                            font-size: 100%;
+                            text-align: center;
+                        }
+                    }
+                }
+
+            }
+        }
+
+        footer{
+
+            padding-top: 40px;
+
+            .scroll-back-to-top-wrapper{
+
+                z-index: 9000;
+            }
+
+            .inner{
+
+                margin-top: 40px 0;
+                background: rgba( 0,0,0,0.8 );
+
+                ul.footer_widgetarea{
+
+                    width: 80%;
+                    margin: 0 auto;
+
+                    color: $white;
+
+                    &.four{
+
+                        #acurax_si_simple{
+
+                            text-align: left !important;
+                        }
+                    }
+
+                    li{
+
+                        &#black-studio-tinymce-8{
+
+                            display: none;
+                        }
+
+                        &#acx-social-icons-widget-2{
+
+                            .widget-acx-social-icons-widget-2-widget{
+
+                                img{
+                                    width: 40px;
+                                    height: auto;
+                                }
+                            } 
+                        }
+
+                        h2{
+                            padding: 20px 0;
+                            color: $white;
+                            font-weight: bold;
+                        }
+
+                        p{
+                            color: $grey;
+                        }
+
+                        ul{
+
+                            li{
+                                &:before{
+                                    content: "› ";
+                                }
+                            }
+                        }
+
+                        a{
+                            color: $grey;
+                            text-decoration: none;
+                        }
+
+                    }
+
+                }
+            }
+
+            #copyright{
+
+                padding: 20px 0;
+                text-align: center;
+                color: $lightgrey;
+                text-shadow: 3px 3px $black;
+
+            }
+        }
+
+    }
+
+    div.ui-datepicker{
+        font-size:14px;
+    }
+
+}
+
+
+

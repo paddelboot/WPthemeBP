@@ -1,12 +1,11 @@
 /**
-    * Theme Name: neu
+    * Theme Name: Neu WordPress Theme
     * Author: Michael Schröder <ms@meilenstein.ms>
     * Author URI: http://meilenstein.ms
-    * Description: neu Relaunch Theme
+    * Description: Neu Relaunch Theme
     * Version: 0.1a
     * License: 
     * Text Domain: neu
-    * neu Theme
     * 
     * Style definitions
     * 
@@ -19,8 +18,40 @@
     * 
 */
 
-@import "css/reset";
-@import "css/globals";
-@import "css/mixins";
-//@import url(http://fonts.googleapis.com/css?family=Lato:300);
+/* General CSS files and 3rd party CSS */
+@import "inc/css/reset";
+@import "inc/css/globals";
+@import "inc/css/mixins";
+
+/* Fonts */
+@font-face {
+	font-family: 'Merriweather Bold';
+	src: url( 'fonts/Merriweather-Bold.ttf' );
+}
+@font-face {
+	font-family: 'Merriweather Regular';
+	src: url( 'fonts/Merriweather-Regular.ttf' );
+}
+
+
+/* Media queries */
+
+/* 320px */
+@import "inc/css/responsive/320";
+
+/* 640px */
+@import "inc/css/responsive/700";
+
+/* 800px */
+@import "inc/css/responsive/800";
+
+/* 960px */
+@import "inc/css/responsive/960";
+
+/* 1280px */
+@import "inc/css/responsive/1280";
+
+/* 1440px */
+//@import "inc/css/responsive/min_1440";
+
 

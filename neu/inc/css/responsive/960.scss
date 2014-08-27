@@ -1,0 +1,546 @@
+/**
+ * @960px
+ *
+ */
+
+@media only screen  
+and ( min-width: 960px ) {
+
+    body > #container{
+
+        .mobile{
+            display: none;
+        }
+
+        .desktop{
+            display: block;
+        }
+
+        header{
+
+            width: 90%;
+            margin: 0 auto;
+
+            #logo{
+
+                img{
+                    width: 95%;
+                }
+            }
+
+
+
+            nav{
+
+                &.misc{
+
+                    display: block;
+                    position: relative;
+                    width: 100%;
+                    margin: 0 auto;
+
+                    ul{
+                        list-style: none;
+
+                        li{
+                            list-style: none;
+                        }
+                    }
+
+                    .header_widget{
+
+                        width: 275px;
+                        height: 50px;
+                        line-height: 50px;
+                        color: $white;
+                        text-align: center;
+                        background: rgba( 0,0,0,0.65 );
+                        border-radius: 0 0 10px 10px;
+                        border: solid rgba( 0,0,0,0.65 );
+                        border-width: 0 5px 5px 5px;
+                        -webkit-background-clip: padding-box;
+                        background-clip: padding-box;
+
+                        box-shadow: 3px 3px 5px 0px $black;
+
+                        &.left{
+
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+
+                            ul{
+
+                                border-radius: 0 0 10px 10px;
+                                border: dotted $gold;
+                                border-width: 0 2px 2px 2px;
+
+                                li{
+
+                                    .textwidget{
+
+                                        height: 50px;
+                                        line-height: 50px;
+
+                                        p{
+                                            vertical-align: middle;
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                        &.right{
+
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+
+                            ul{
+                                height: 50px;
+                                border-radius: 0 0 10px 10px;
+                                border: dotted $gold;
+                                border-width: 0 2px 2px 2px;
+
+                                #acurax_si_simple.widget-acx-social-icons-widget-3-widget{
+
+                                    display: inline-block;
+                                    margin: 0 auto;
+                                    height: 50px;
+
+                                    a{
+
+                                        display: block;
+                                        float: left;
+                                        height: 50px;
+                                        line-height: 50px;
+                                        padding: 0 2px;
+
+
+                                        img{
+
+                                            width: 40px;
+                                            height: auto;
+                                            vertical-align: middle;
+                                        }
+
+                                    }
+                                }
+
+                            }
+
+                        }
+                    }
+
+                }
+
+                &#main_nav{
+
+                    .main_menu_header_container{
+
+                        height: 35px;
+
+                        ul#menu-hauptmenue{
+
+                            //width: 960px;
+                            margin: 0 auto;
+
+                            li{
+
+                                a{
+                                    font-size: 14px;
+                                    padding-left: 6px;
+                                    padding-right: 6px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #banner_wrapper{
+
+            padding: 0;
+
+            .slider.home{
+
+                padding: 60px 0;
+
+                background: url( 'assets/images/backgrounds/banner_shadow_top.png' ) no-repeat center 0px,
+                    url( 'assets/images/backgrounds/banner_shadow_bottom.png' ) no-repeat center bottom;
+                background-size: 1220px 60px, 1220px 60px;
+
+            }
+
+            .next-events,
+            .last-events{
+
+                padding: 50px 0;
+
+                background: url( 'assets/images/backgrounds/banner_shadow_top.png' ) no-repeat center 0px,
+                    url( 'assets/images/backgrounds/banner_shadow_bottom.png' ) no-repeat center 180px;
+                background-size: 1220px 50px, 1220px 50px;
+
+                .inner{
+                    height: 130px;
+                    line-height: 130px;
+                    text-align: center;
+                    background: rgba( 0, 0, 0, 0.5 );
+
+                    h1{
+                        display: inline-block;
+                        margin: 0 auto;
+                        font-size: 110px;
+                        color: $white;
+                        vertical-align: middle;
+                        text-transform: uppercase;
+
+                    }
+                }
+            }
+        }
+
+        #content{
+
+            &.page{
+
+                section.pagecontent{
+
+                    @include default_section;
+
+                    padding: 40px;
+
+                }
+            }
+
+            &.home{
+
+                section{
+
+                    &.teaser{
+
+                        article{
+
+
+                            a{
+
+                                img.teaser-frontpage{
+
+                                    width: 100%;
+                                    height: auto;
+                                }
+
+                            }
+
+                        }
+
+                        article{
+
+                            width: 23%;
+
+                            .content{
+
+                                padding: 20px;
+
+                                h2{
+                                    padding-top: 0;
+                                    font-size: 20px;
+                                    font-size: 2rem;
+                                }
+                            }
+
+                            .teaser_bottom{
+
+                                height: 48px;
+                                padding: 20px 0 0 34px;
+
+                                color: $white;
+                                font-size: 14px;
+
+                                background: url( 'assets/images/backgrounds/teaser_bottom.png' ) no-repeat center left;
+                                background-size: cover;
+
+                                span{
+                                    padding: 10px 0;
+                                }
+
+                            }
+
+                        }
+
+                        .spacer{
+                            display: block;
+                            float: left;
+                            width: 2.5%;
+                        }
+
+                        .spacer{
+                            //display: none;
+                        }
+
+                    }
+
+                    &.event{
+
+                        @include article_section;
+
+                        padding-top: 50px;
+
+                        .css-events-list{
+
+                            @include events-list-desktop;
+
+                            article .content .event_bottom.desktop a.more{
+
+                                padding: 7px 30px 0 13px;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            &.taxonomy.food{
+
+                margin-top: 140px;
+
+                section{
+
+
+                }
+
+            }
+
+            &.taxonomy.drink{
+
+                margin-top: 140px;
+
+                section{
+
+                    &.pagecontent{
+
+                        padding: 30px 60px;
+
+                        .content.drink{
+
+                            article{
+
+                                .prices{
+
+                                    font-size: 100%;
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            &.next-events{
+
+                section{
+
+                    .css-events-list{
+
+                        @include events-list-desktop;
+
+                        article{
+
+                            .content{
+
+                                .event_bottom.desktop{
+
+                                    a.more{
+
+                                        padding: 8px 43px 0 13px;
+                                    }
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+
+
+            }
+
+            &.last-events{
+
+                section{
+
+                    .css-events-list{
+
+                        width: 100%;
+
+                        article{
+
+                            width: 49.5%;
+                            clear: none;
+                            float: left;
+
+                            &>a{
+
+                                width: 90%;
+                                margin: 0 auto;
+
+                                background-size: contain;
+                            }
+
+                            .content{
+                                width: 70%;
+
+                                h2{
+                                    font-size: 20px;
+                                }
+                            }
+
+                            .event_bottom{
+                                width: 70%;
+
+                                background-size: contain;
+                                background-position: top;
+
+                                a.more{
+
+                                    padding-top: 20px;
+                                    padding-left: 20px;
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+            }
+
+            &.single.event{
+
+                section.pagecontent{
+
+                    &.next-event{
+
+                        padding: 30px 80px;
+                    }
+
+                }
+
+            }
+
+            &.specials{
+
+                margin-top: 140px;
+
+                section{
+
+                    &.pagecontent{
+
+                        padding: 20px 60px;
+                        background: none;
+
+                        h2{
+
+                            margin-bottom: 40px;
+                            padding-top: 20px;
+                        }
+
+                        article{
+
+                            img.wp-post-image{
+
+                                width: 300px;
+                                margin-right: 40px;
+                            }
+
+                            .attributes{
+
+                                span{
+
+                                    &.new{
+
+                                        left: -69px;
+                                    }
+                                }
+
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            &.reservierung,
+            &.kontakt,
+            &.newsletter{
+
+                margin-top: 140px;
+
+                section{
+
+                    &.pagecontent{
+
+                        background: none;
+                        padding-top: 0;
+                        padding-bottom: 0;
+
+                        .wpcf7{
+
+                            form{
+
+                                p.submit{
+
+                                    bottom: -138px;
+                                    left: 100px;
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        footer{
+
+            .inner{
+
+                ul.footer_widgetarea{
+
+                    width: 22%;
+
+                    &.three{
+                        clear: none;
+                    }
+
+                    &.four{
+                        padding-top: 0;
+                    }
+                }
+
+                .spacer{
+                    width: 3%;
+                    float: left;
+                    display: block;
+
+                    &.three{
+                        width: 3%;
+                    }
+
+
+                }
+            }
+        }
+
+
+    }
+}
