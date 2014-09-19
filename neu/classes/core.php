@@ -241,37 +241,42 @@ if ( !class_exists( 'neu_core' ) ) {
          */
         public function column_shortcode( $atts, $content = NULL ) {
 
-           extract( shortcode_atts( array(
-                'weite' => '48',
+            extract( shortcode_atts( array(
+                'weite' => 'halb',
                 'pos' => 'links',
-                'padding' => '',
-                'einzug' => '2',
+                'satz' => 'block',
                 'klasse' => ''
                             ), $atts ) );
 
             // Column types
-            if ( 'links' == $pos ) {
+            if( 'links' == $pos ) {
 
                 $float = 'left';
-                $padding = 'padding-right: ' . $einzug . '%';
             }
-            if ( 'mitte' == $pos ) {
+            if( 'mitte' == $pos ) {
 
                 $float = 'left';
-                $padding = 'padding: 0 ' . $einzug . '%';
             }
-            if ( 'rechts' == $pos ) {
+            if( 'rechts' == $pos ) {
 
                 $float = 'right';
-                $padding = 'padding-left: ' . $einzug . '%';
             }
+            
+            if ( 'block' == $satz )
+                $align = 'align-justify';
+            else
+                $align = 'align-left';
 
             // This is not supposed to be self-enclosing
-            if ( NULL !== $content ) {
+            if( NULL !== $content ) :
 
-                return '<div class="column float' . $float . ' justify box_content ' . $klasse . '" style="width: ' . $weite . '%; ' . $padding . '">' . apply_filters( 'the_content', $content ) . '</div>';
-            }
-}
+                return '<div class="column float' . $float . ' box_content ' . $align . ' ' . $klasse . ' ' . $weite . ' ' . $pos . '">' . apply_filters( 'the_content', $content ) . '</div>';
+                    
+            endif;
+            
+            
+            return apply_filters( 'the_content', $content );
+        }
 
         /**
          * For not getting annoyed too much by PHP notices. This function should
